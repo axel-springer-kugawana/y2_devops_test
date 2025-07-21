@@ -1,0 +1,12 @@
+on: push
+
+name: pipeline
+
+jobs:
+  changedFiles:
+    name: y2_devops_test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: pipeline
+      uses: ./.github/actions/pipeline
