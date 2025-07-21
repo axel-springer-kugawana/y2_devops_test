@@ -25,7 +25,7 @@ Create all of the neccessry objects in order to run the application in a working
 ### **Task 4 - CI/CD Pipeline**
 Choose one of these options to implement the CI/CD pipeline:
 
-#### Option 2 - GitHub Actions
+#### GitHub Actions
 Create a GitHub Actions workflow in `.github/workflows/` with:
 * Proper environment secrets configuration
 * Workflow triggers on push/PR
