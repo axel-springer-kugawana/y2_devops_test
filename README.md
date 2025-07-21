@@ -23,7 +23,6 @@ Create a `Dockerfile` for this simple go web application.
 Create all of the neccessry objects in order to run the application in a working kubernetes cluster.
 
 ### **Task 4 - CI/CD Pipeline**
-Choose one of these options to implement the CI/CD pipeline:
 
 #### GitHub Actions
 Create a GitHub Actions workflow in `.github/workflows/` with:
