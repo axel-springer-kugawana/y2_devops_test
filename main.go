@@ -1,17 +1,20 @@
 package main
+
 import (
-  "github.com/gorilla/mux"
-  "net/http"
   "encoding/json"
   "math/rand"
+  "net/http"
   "strconv"
+
+  "github.com/gorilla/mux"
 )
 
 type Post struct {
-  ID string `json:"id"`
+  ID    string `json:"id"`
   Title string `json:"title"`
-  Body string `json:"body"`
+  Body  string `json:"body"`
 }
+
 var posts []Post
 
 func getPosts(w http.ResponseWriter, r *http.Request) {
@@ -23,8 +26,8 @@ func createPost(w http.ResponseWriter, r *http.Request) {
   w.Header().Set("Content-Type", "application/json")
   var post Post
   err := json.NewDecoder(r.Body).Decode(&post)
-  if err != nil{
-  	panic(err)
+  if err != nil {
+    panic(err)
   }
   post.ID = strconv.Itoa(rand.Intn(1000000))
   posts = append(posts, post)
@@ -75,7 +78,7 @@ func deletePost(w http.ResponseWriter, r *http.Request) {
 func main() {
   router := mux.NewRouter()
   posts = append(posts, Post{ID: "1", Title: "My first post", Body: "This is the content of my first post"})
-  router.HandleFunc("/posts", createPost).Methods("GET")
+  router.HandleFunc("/posts", getPosts).Methods("GET")
   router.HandleFunc("/posts", createPost).Methods("POST")
   router.HandleFunc("/posts/{id}", getPost).Methods("GET")
   router.HandleFunc("/posts/{id}", updatePost).Methods("PUT")
