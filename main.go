@@ -75,7 +75,8 @@ func deletePost(w http.ResponseWriter, r *http.Request) {
 func main() {
   router := mux.NewRouter()
   posts = append(posts, Post{ID: "1", Title: "My first post", Body: "This is the content of my first post"})
-  router.HandleFunc("/posts", createPost).Methods("GET")
+-  router.HandleFunc("/posts", createPost).Methods("GET")
++  router.HandleFunc("/posts", getPosts).Methods("GET")
   router.HandleFunc("/posts", createPost).Methods("POST")
   router.HandleFunc("/posts/{id}", getPost).Methods("GET")
   router.HandleFunc("/posts/{id}", updatePost).Methods("PUT")
